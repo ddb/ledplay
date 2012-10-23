@@ -1,0 +1,10 @@
+MO ledplay NULL ledplay.v vlg73/ledplay.bin 1350971971
+MO LEDglow NULL ledplay.v vlg72/_l_e_dglow.bin 1350791146
+MO bididrectional_fader NULL ledplay.v vlg3E/bididrectional__fader.bin 1350791565
+MO four_digit_display NULL ledplay.v vlg55/four__digit__display.bin 1350971971
+MO cylon8bit NULL ledplay.v vlg08/cylon8bit.bin 1350971971
+MO my_clock NULL my_clock.v vlg35/my__clock.bin 1350971971
+MO bargraph8bit NULL ledplay.v vlg6A/bargraph8bit.bin 1350971971
+MO LED_7seg NULL ledplay.v vlg42/_l_e_d__7seg.bin 1350791146
+MO cylon_segment NULL ledplay.v vlg1B/cylon__segment.bin 1350791146
+MO bidirectional_fader NULL ledplay.v vlg4A/bidirectional__fader.bin 1350971971

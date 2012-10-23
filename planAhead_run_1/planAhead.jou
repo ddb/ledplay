@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.2
+# Build 194362 by xbuild on Fri Jul 20 18:52:36 MDT 2012
+# Start of session at: Mon Oct 22 19:18:15 2012
+# Process ID: 3928
+# Log file: Z:/Documents/Source/github/ledplay/planAhead_run_1/planAhead.log
+# Journal file: Z:/Documents/Source/github/ledplay/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source Z:/Documents/Source/github/ledplay/pa.fromNcd.tcl

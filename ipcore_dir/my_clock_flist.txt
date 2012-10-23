@@ -1,0 +1,2 @@
+# Output products list for <my_clock>
+my_clock_flist.txt

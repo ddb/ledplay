@@ -1,0 +1,520 @@
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (nt)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.2\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml ledplay.twx ledplay.ncd -o ledplay.twr ledplay.pcf -ucf
+pins.ucf
+
+Design file:              ledplay.ncd
+Physical constraint file: ledplay.pcf
+Device,package,speed:     xc3s500e,vq100,-4 (PRODUCTION 1.27 2012-07-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: NET "the_clock/CLKIN_IBUFG" PERIOD = 31.25 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is  10.000ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "the_clock/CLKIN_IBUFG" PERIOD = 31.25 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 21.250ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 31.250ns
+  Low pulse: 15.625ns
+  Low pulse limit: 5.000ns (Tdcmpw_CLKIN_25_50)
+  Physical resource: the_clock/DCM_SP_INST/CLKIN
+  Logical resource: the_clock/DCM_SP_INST/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: the_clock/CLKIN_IBUFG
+--------------------------------------------------------------------------------
+Slack: 21.250ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 31.250ns
+  High pulse: 15.625ns
+  High pulse limit: 5.000ns (Tdcmpw_CLKIN_25_50)
+  Physical resource: the_clock/DCM_SP_INST/CLKIN
+  Logical resource: the_clock/DCM_SP_INST/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: the_clock/CLKIN_IBUFG
+--------------------------------------------------------------------------------
+Slack: 27.084ns (period - min period limit)
+  Period: 31.250ns
+  Min period limit: 4.166ns (240.038MHz) (Tdcmpc)
+  Physical resource: the_clock/DCM_SP_INST/CLKIN
+  Logical resource: the_clock/DCM_SP_INST/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: the_clock/CLKIN_IBUFG
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net "the_clock/CLKFX_BUF" derived from  
+NET "the_clock/CLKIN_IBUFG" PERIOD = 31.25 ns HIGH 50%;  divided by 2.25 to 
+13.889 nS and duty cycle corrected to HIGH 6.944 nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 2475 paths analyzed, 689 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   6.103ns.
+--------------------------------------------------------------------------------
+
+Paths for end point bargraph2/leds_state_3 (SLICE_X40Y58.SR), 6 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     7.785ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/fader/counter_24 (FF)
+  Destination:          bargraph2/leds_state_3 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      6.103ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/fader/counter_24 to bargraph2/leds_state_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X47Y77.XQ      Tcko                  0.591   bargraph2/fader/counter<24>
+                                                       bargraph2/fader/counter_24
+    SLICE_X40Y59.BX      net (fanout=26)       2.584   bargraph2/fader/counter<24>
+    SLICE_X40Y59.X       Tbxx                  0.806   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X40Y58.SR      net (fanout=8)        1.212   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X40Y58.CLK     Tsrck                 0.910   bargraph2/leds_state<3>
+                                                       bargraph2/leds_state_3
+    -------------------------------------------------  ---------------------------
+    Total                                      6.103ns (2.307ns logic, 3.796ns route)
+                                                       (37.8% logic, 62.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.354ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/current_state_0 (FF)
+  Destination:          bargraph2/leds_state_3 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      5.534ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/current_state_0 to bargraph2/leds_state_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X41Y63.YQ      Tcko                  0.587   bargraph2/current_state<1>
+                                                       bargraph2/current_state_0
+    SLICE_X40Y59.F1      net (fanout=12)       1.673   bargraph2/current_state<0>
+    SLICE_X40Y59.X       Tif5x                 1.152   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>11
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X40Y58.SR      net (fanout=8)        1.212   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X40Y58.CLK     Tsrck                 0.910   bargraph2/leds_state<3>
+                                                       bargraph2/leds_state_3
+    -------------------------------------------------  ---------------------------
+    Total                                      5.534ns (2.649ns logic, 2.885ns route)
+                                                       (47.9% logic, 52.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.793ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/current_state_1 (FF)
+  Destination:          bargraph2/leds_state_3 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      5.095ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/current_state_1 to bargraph2/leds_state_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X41Y63.XQ      Tcko                  0.591   bargraph2/current_state<1>
+                                                       bargraph2/current_state_1
+    SLICE_X40Y59.F3      net (fanout=11)       1.230   bargraph2/current_state<1>
+    SLICE_X40Y59.X       Tif5x                 1.152   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>11
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X40Y58.SR      net (fanout=8)        1.212   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X40Y58.CLK     Tsrck                 0.910   bargraph2/leds_state<3>
+                                                       bargraph2/leds_state_3
+    -------------------------------------------------  ---------------------------
+    Total                                      5.095ns (2.653ns logic, 2.442ns route)
+                                                       (52.1% logic, 47.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point bargraph2/leds_state_1 (SLICE_X41Y60.F1), 6 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     7.913ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/fader/counter_24 (FF)
+  Destination:          bargraph2/leds_state_1 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      5.975ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/fader/counter_24 to bargraph2/leds_state_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X47Y77.XQ      Tcko                  0.591   bargraph2/fader/counter<24>
+                                                       bargraph2/fader/counter_24
+    SLICE_X40Y59.BX      net (fanout=26)       2.584   bargraph2/fader/counter<24>
+    SLICE_X40Y59.X       Tbxx                  0.806   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X41Y60.F1      net (fanout=8)        1.157   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X41Y60.CLK     Tfck                  0.837   bargraph2/leds_state<1>
+                                                       bargraph2/Mmux_leds_state_mux00002
+                                                       bargraph2/leds_state_1
+    -------------------------------------------------  ---------------------------
+    Total                                      5.975ns (2.234ns logic, 3.741ns route)
+                                                       (37.4% logic, 62.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.482ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/current_state_0 (FF)
+  Destination:          bargraph2/leds_state_1 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      5.406ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/current_state_0 to bargraph2/leds_state_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X41Y63.YQ      Tcko                  0.587   bargraph2/current_state<1>
+                                                       bargraph2/current_state_0
+    SLICE_X40Y59.F1      net (fanout=12)       1.673   bargraph2/current_state<0>
+    SLICE_X40Y59.X       Tif5x                 1.152   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>11
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X41Y60.F1      net (fanout=8)        1.157   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X41Y60.CLK     Tfck                  0.837   bargraph2/leds_state<1>
+                                                       bargraph2/Mmux_leds_state_mux00002
+                                                       bargraph2/leds_state_1
+    -------------------------------------------------  ---------------------------
+    Total                                      5.406ns (2.576ns logic, 2.830ns route)
+                                                       (47.7% logic, 52.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.921ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/current_state_1 (FF)
+  Destination:          bargraph2/leds_state_1 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      4.967ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/current_state_1 to bargraph2/leds_state_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X41Y63.XQ      Tcko                  0.591   bargraph2/current_state<1>
+                                                       bargraph2/current_state_1
+    SLICE_X40Y59.F3      net (fanout=11)       1.230   bargraph2/current_state<1>
+    SLICE_X40Y59.X       Tif5x                 1.152   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>11
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X41Y60.F1      net (fanout=8)        1.157   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X41Y60.CLK     Tfck                  0.837   bargraph2/leds_state<1>
+                                                       bargraph2/Mmux_leds_state_mux00002
+                                                       bargraph2/leds_state_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.967ns (2.580ns logic, 2.387ns route)
+                                                       (51.9% logic, 48.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point bargraph2/leds_state_5 (SLICE_X41Y61.F1), 6 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     7.913ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/fader/counter_24 (FF)
+  Destination:          bargraph2/leds_state_5 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      5.975ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/fader/counter_24 to bargraph2/leds_state_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X47Y77.XQ      Tcko                  0.591   bargraph2/fader/counter<24>
+                                                       bargraph2/fader/counter_24
+    SLICE_X40Y59.BX      net (fanout=26)       2.584   bargraph2/fader/counter<24>
+    SLICE_X40Y59.X       Tbxx                  0.806   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X41Y61.F1      net (fanout=8)        1.157   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X41Y61.CLK     Tfck                  0.837   bargraph2/leds_state<5>
+                                                       bargraph2/Mmux_leds_state_mux00006
+                                                       bargraph2/leds_state_5
+    -------------------------------------------------  ---------------------------
+    Total                                      5.975ns (2.234ns logic, 3.741ns route)
+                                                       (37.4% logic, 62.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.482ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/current_state_0 (FF)
+  Destination:          bargraph2/leds_state_5 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      5.406ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/current_state_0 to bargraph2/leds_state_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X41Y63.YQ      Tcko                  0.587   bargraph2/current_state<1>
+                                                       bargraph2/current_state_0
+    SLICE_X40Y59.F1      net (fanout=12)       1.673   bargraph2/current_state<0>
+    SLICE_X40Y59.X       Tif5x                 1.152   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>11
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X41Y61.F1      net (fanout=8)        1.157   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X41Y61.CLK     Tfck                  0.837   bargraph2/leds_state<5>
+                                                       bargraph2/Mmux_leds_state_mux00006
+                                                       bargraph2/leds_state_5
+    -------------------------------------------------  ---------------------------
+    Total                                      5.406ns (2.576ns logic, 2.830ns route)
+                                                       (47.7% logic, 52.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.921ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               bargraph2/current_state_1 (FF)
+  Destination:          bargraph2/leds_state_5 (FF)
+  Requirement:          13.888ns
+  Data Path Delay:      4.967ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 13.888ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: bargraph2/current_state_1 to bargraph2/leds_state_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X41Y63.XQ      Tcko                  0.591   bargraph2/current_state<1>
+                                                       bargraph2/current_state_1
+    SLICE_X40Y59.F3      net (fanout=11)       1.230   bargraph2/current_state<1>
+    SLICE_X40Y59.X       Tif5x                 1.152   bargraph2/current_state<3>
+                                                       bargraph2/_old_current_state_5<3>11
+                                                       bargraph2/_old_current_state_5<3>1_f5
+    SLICE_X41Y61.F1      net (fanout=8)        1.157   bargraph2/Madd__COND_6_lut<3>
+    SLICE_X41Y61.CLK     Tfck                  0.837   bargraph2/leds_state<5>
+                                                       bargraph2/Mmux_leds_state_mux00006
+                                                       bargraph2/leds_state_5
+    -------------------------------------------------  ---------------------------
+    Total                                      4.967ns (2.580ns logic, 2.387ns route)
+                                                       (51.9% logic, 48.1% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: PERIOD analysis for net "the_clock/CLKFX_BUF" derived from
+ NET "the_clock/CLKIN_IBUFG" PERIOD = 31.25 ns HIGH 50%;
+ divided by 2.25 to 13.889 nS and duty cycle corrected to HIGH 6.944 nS 
+
+--------------------------------------------------------------------------------
+
+Paths for end point seven_seg_leds_1_3 (SLICE_X35Y33.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.947ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               bargraph1/leds_state_3 (FF)
+  Destination:          seven_seg_leds_1_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.944ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.003ns (0.111 - 0.114)
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: bargraph1/leds_state_3 to seven_seg_leds_1_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X32Y34.XQ      Tcko                  0.474   bargraph1/leds_state<3>
+                                                       bargraph1/leds_state_3
+    SLICE_X35Y33.BX      net (fanout=1)        0.377   bargraph1/leds_state<3>
+    SLICE_X35Y33.CLK     Tckdi       (-Th)    -0.093   seven_seg_leds_1<3>
+                                                       seven_seg_leds_1_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.944ns (0.567ns logic, 0.377ns route)
+                                                       (60.1% logic, 39.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point seven_seg_leds_1_5 (SLICE_X34Y33.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.965ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               bargraph1/leds_state_5 (FF)
+  Destination:          seven_seg_leds_1_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.961ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.004ns (0.005 - 0.009)
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: bargraph1/leds_state_5 to seven_seg_leds_1_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X34Y34.XQ      Tcko                  0.474   bargraph1/leds_state<5>
+                                                       bargraph1/leds_state_5
+    SLICE_X34Y33.BX      net (fanout=1)        0.353   bargraph1/leds_state<5>
+    SLICE_X34Y33.CLK     Tckdi       (-Th)    -0.134   seven_seg_leds_1<5>
+                                                       seven_seg_leds_1_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.961ns (0.608ns logic, 0.353ns route)
+                                                       (63.3% logic, 36.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point seven_seg_leds_1_6 (SLICE_X35Y32.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.989ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               bargraph1/leds_state_6 (FF)
+  Destination:          seven_seg_leds_1_6 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.985ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.004ns (0.005 - 0.009)
+  Source Clock:         local_clock rising at 0.000ns
+  Destination Clock:    local_clock rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: bargraph1/leds_state_6 to seven_seg_leds_1_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X35Y35.XQ      Tcko                  0.473   bargraph1/leds_state<6>
+                                                       bargraph1/leds_state_6
+    SLICE_X35Y32.BY      net (fanout=1)        0.377   bargraph1/leds_state<6>
+    SLICE_X35Y32.CLK     Tckdi       (-Th)    -0.135   seven_seg_leds_1<7>
+                                                       seven_seg_leds_1_6
+    -------------------------------------------------  ---------------------------
+    Total                                      0.985ns (0.608ns logic, 0.377ns route)
+                                                       (61.7% logic, 38.3% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "the_clock/CLKFX_BUF" derived from
+ NET "the_clock/CLKIN_IBUFG" PERIOD = 31.25 ns HIGH 50%;
+ divided by 2.25 to 13.889 nS and duty cycle corrected to HIGH 6.944 nS 
+
+--------------------------------------------------------------------------------
+Slack: 10.821ns (period - min period limit)
+  Period: 13.888ns
+  Min period limit: 3.067ns (326.052MHz) (Tdcmpfx)
+  Physical resource: the_clock/DCM_SP_INST/CLKFX
+  Logical resource: the_clock/DCM_SP_INST/CLKFX
+  Location pin: DCM_X0Y1.CLKFX
+  Clock network: the_clock/CLKFX_BUF
+--------------------------------------------------------------------------------
+Slack: 12.236ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 13.888ns
+  Low pulse: 6.944ns
+  Low pulse limit: 0.826ns (Tcl)
+  Physical resource: cylon/leds_state<0>/CLK
+  Logical resource: cylon/leds_state_0/CK
+  Location pin: SLICE_X2Y66.CLK
+  Clock network: local_clock
+--------------------------------------------------------------------------------
+Slack: 12.236ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 13.888ns
+  High pulse: 6.944ns
+  High pulse limit: 0.826ns (Tch)
+  Physical resource: cylon/leds_state<0>/CLK
+  Logical resource: cylon/leds_state_0/CK
+  Location pin: SLICE_X2Y66.CLK
+  Clock network: local_clock
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for the_clock/CLKIN_IBUFG
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|the_clock/CLKIN_IBUFG          |     31.250ns|     10.000ns|     13.732ns|            0|            0|            0|         2475|
+| the_clock/CLKFX_BUF           |     13.889ns|      6.103ns|          N/A|            0|            0|         2475|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clock
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clock          |    6.103|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 2475 paths, 0 nets, and 753 connections
+
+Design statistics:
+   Minimum period:  10.000ns{1}   (Maximum frequency: 100.000MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Mon Oct 22 23:00:24 2012 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 121 MB
+
+
+

@@ -1,0 +1,58 @@
+#:C13    
+#Xilinx FPGA Editor Command Log File
+#Editor Version:
+#:V   NT M2.1 P.28xd
+#Current Working Directory:
+#:D   Z:\Documents\Source\github\ledplay
+#Date/Time:
+#:T   Mon Oct 22 22:50:46 2012
+#------------------------------
+	#Reading ledplay.ncd...
+	#Loading device for application Rf_Device from file '3s500e.nph' in environment C:\Xilinx\14.2\ISE_DS\ISE\.
+	#   "ledplay" is an NCD, version 3.2, device xc3s500e, package vq100, speed -4
+	#Design creation date: 2012.10.23.04.59.39
+	#Building chip graphics...
+	#Loading speed info...
+	#1
+setattr main edit-mode no-logic-changes
+	#2
+select -k comp 'switch_safe<1>'
+	#3
+hilite -c deep_pink
+	#4
+refresh
+	#5
+unselect -all
+	#6
+select arc 'VCCOUT(17432,51080)--->DUMMY(17473,50024)'
+	#arc "VCCOUT(17432,51080)--->DUMMY(17473,50024)"
+	#7
+hilite -c magenta
+	#8
+probe selected
+	#The probe command requires a read/write edit mode.
+	#Do you want to change the edit mode?
+	#9
+setattr main edit-mode read-write
+	#ERROR:FPGAEditor:487 - The selection for the "probe" command must contain one
+	#or more nets.
+	#10
+probe selected
+	#ERROR:FPGAEditor:487 - The selection for the "probe" command must contain one
+	#or more nets.
+	#11
+post probes
+	#12
+unpost probes
+	#13
+unselect -all
+	#14
+select rpm 'Shape_7'
+	#RPM Shape_7, type CARRY
+	#15
+unselect -all
+	#16
+select comp 'bargraph2/fader/PWM_fade_up<8>'
+	#comp "bargraph2/fader/PWM_fade_up<8>",  site "SLICE_X43Y75",  type = SLICEL  (RPM grid X91Y77)
+	#17
+post block

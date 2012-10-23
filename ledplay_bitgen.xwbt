@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=Z:\Documents\Source\github\ledplay\ledplay.ncd
+OUTFILE=Z:\Documents\Source\github\ledplay\ledplay.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4vq100
+WORKINGDIR=Z:\Documents\Source\github\ledplay
+LICENSE=WebPack
+USER_INFO=210655372_0_0_814
